@@ -13,6 +13,10 @@ document.getElementById("krs").style.fontWeight = "bolder";
 document.getElementById("krs").style.color = "green";
 
 
+let y = document.getElementsByClassName('list-group-item');
+y[2].style.color = " green";
 
-
-
+for(let i =0; i<y.length; i++)
+{
+    y[i].style.backgroundColor = "#f4f4f4";
+}
