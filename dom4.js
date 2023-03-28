@@ -25,4 +25,14 @@ let z = document.getElementsByClassName('jk');
 z[0].style.color = "red";
 let t = document.getElementsByTagName('li');
 t[4].style.backgroundColor = "green";
+t[1].style.backgroundColor="green";
+t[2].style.display = "none";
+let a = document.querySelectorAll('.list-group-item');
+a[1].style.color='red';
+for(let  i = 0; i< a.length; i++)
+{
+    if(i%2 == 0){
+        a[i].style.backgroundColor="grey";
+    }
+}
 
