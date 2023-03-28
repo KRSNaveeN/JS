@@ -20,3 +20,9 @@ for(let i =0; i<y.length; i++)
 {
     y[i].style.backgroundColor = "#f4f4f4";
 }
+// document.getElementById('lastitem').style.color = "blue";
+let z = document.getElementsByClassName('jk');
+z[0].style.color = "red";
+let t = document.getElementsByTagName('li');
+t[4].style.backgroundColor = "green";
+
