@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking App</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+         li{
+            width: 300px;
+            margin: 5px 5px;
+            padding-top: 19px;
+            display: flex;
+            justify-content: space-between;
+        } ul{
+            width:400px;height : 150px;
+        } 
+        div.love{
+            /* width: 500px; */
+            background-color: rgb(15, 84, 84);
+           display: flex;
+           height:200px;
+           justify-content: center;
+           align-items: center; 
+        }
+        div.nolove{
+            text-align: center;
+        }
+        /* label{
+            /* width: 70px; */
+            /* background-color: blue; */
+        /* } */
+         h1
+         {
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            
+         }
+         #navi{
+            /* text-align: center; */
+            margin: auto;
+         }
+         div.main{
+            background-color: bisque;
+            /* height: 100vh; */
+         }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <header>
+        <h1>
+            Booking App
+        </h1>
+    </header>
+    <div class="love">
+       
+          <section> 
+            <ul style="background-color: cadetblue;">
+                <li>
+                    <label for="item1">Name</label>
+                    <input type="text" id="item1" placeholder="Enter your name">
+                </li>
+               
+                <li>
+                    <label for="item2">Email</label>
+                <input type="email" id="item2" placeholder="@gmail.com">
+                </li>
+                <li>
+                    <label for="item3">Phone Number</label>
+                    <input type="number" id="item3">
+                </li>
+                
+            </ul>
+        </section>
+    </div>
+    <br>
+    <div class="nolove">
+        <input type="submit" value="click me" id="navi">
+    </div>
+        
+        <ol id="krs">
+            
+        </ol>
+    
+    
+      </div>  
+    <script src="./app.js"></script>
+
+</body>
+</html>
