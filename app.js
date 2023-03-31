@@ -5,7 +5,35 @@ let a = document.querySelector('#navi');
 let m = document.querySelector('#krs');
 let ol = document.querySelector('#krs');
 a.addEventListener('click' , register);
-ol.addEventListener('click', deletef);
+ol.addEventListener('click', (event)=>{
+    console.log('working');
+    if(event.target.tagName === 'BUTTON')
+    {
+        console.log('here');
+        const button = event.target;
+        const li = button.parentNode;
+        const ul = li.parentNode;
+        const div  = li.firstElementChild;
+        const text = div.textContent;
+        const ans = text.split("-");
+        if(button.textContent === 'delete')
+        {
+            ol.removeChild(li);
+            
+        }
+        else if(button.textContent === 'edit')
+        {
+              x.value = ans[0];
+              y.value = ans[1];
+              z.value = ans[2];
+
+
+              ul.removeChild(li);
+              
+        }
+    }
+});
+
 
 function register(){
     let myobj = 
@@ -18,33 +46,48 @@ function register(){
 let stringifiedobj = JSON.stringify(myobj);
 localStorage.setItem(x.value,stringifiedobj);
 let b = document.createElement('li');
-let c = document.createTextNode(x.value+"   "+y.value+" : "+z.value);
+let div = document.createElement('div');
+let c = x.value+"-"+y.value+"-"+z.value;
+div.appendChild(document.createTextNode(c));
+
+b.appendChild(div);
+
 let d = document.createElement('button');
 let e = document.createTextNode("delete");
 d.appendChild(e);
 d.classList="nasik";
-b.appendChild(c);
 b.appendChild(d);
-console.log(b);
-m.appendChild(b);
-console.log(m);
-x.value="";
+
+
+let ab = document.createElement('button');
+let cd  = document.createTextNode('edit');
+ab.appendChild(cd);
+ab.classList = 'editb';
+b.appendChild(ab);
+
+ol.appendChild(b);
+x.value ="";
 y.value = "";
-z.value = "";
+z.value ="";
 }
-function deletef(e){
+
+
+// function deletef(e){
     
-    if(e.target.classList.contains('nasik'))
-{
-    // console.log(1);
-    if(confirm('are you sure?'))
-    {
-        // here we are dealing with button so it s parent would be li
-       var lii = e.target.parentElement; 
-       ol.removeChild(lii);
-    }
-}
-}
+//     if(e.target.classList.contains('nasik'))
+// {     
+//     // console.log(1);
+//     if(confirm('are you sure?'))
+//     {
+//         // here we are dealing with button so it s parent would be li
+//        var lii = e.target.parentElement.parentElement; 
+//     //    localStorage.removeItem();
+//        ol.removeChild(lii);
+//     }
+// }
+// }
+
+    
 
 
 
