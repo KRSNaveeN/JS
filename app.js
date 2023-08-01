@@ -44,7 +44,9 @@ function register(){
     
     }
 let stringifiedobj = JSON.stringify(myobj);
-localStorage.setItem(x.value,stringifiedobj);
+console.log('inside registr');
+ axios.post("https://crudcrud.com/api/890e96d39d0f4b0388a53dc3c9a666ea/data", myobj).then((data)=>{console.log(data),console.log("inside axios")}).catch((err)=>{console.log(err)});
+// localStorage.setItem(x.value,stringifiedobj);
 let b = document.createElement('li');
 let div = document.createElement('div');
 let c = x.value+"-"+y.value+"-"+z.value;
