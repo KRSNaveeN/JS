@@ -2,14 +2,14 @@ let x = document.querySelector('#item1');
 let y = document.querySelector('#item2');
 let z = document.querySelector('#item3');
 let a = document.querySelector('#navi');
-let m = document.querySelector('#krs');
+// let m = document.querySelector('#krs');
 let ol = document.querySelector('#krs');
 a.addEventListener('click' , register);
 ol.addEventListener('click', (event)=>{
     console.log('working');
     if(event.target.tagName === 'BUTTON')
     {
-        console.log('here');
+        console.log('here',event);
         const button = event.target;
         const li = button.parentNode;
         const ul = li.parentNode;
@@ -19,10 +19,11 @@ ol.addEventListener('click', (event)=>{
         if(button.textContent === 'delete')
         {
             ol.removeChild(li);
+            // axios.delete("")
             
             
         }
-        else if(button.textContent === 'edit')
+         if(button.textContent === 'edit')
         {
               x.value = ans[0];
               y.value = ans[1];
@@ -35,9 +36,10 @@ ol.addEventListener('click', (event)=>{
     }
 });
 window.addEventListener('DOMContentLoaded', ()=>{
-    axios.get("https://crudcrud.com/api/a8be4882480e448eb0b10535100e6e23/appointments")
+    axios.get("https://crudcrud.com/api/11dead135d3549418caa72f228ce7483/users")
        .then((res)=>{console.log(res.data), recall(res.data)})
-       .catch((er)=>console.log(err));
+       .catch((err)=>console.log(err));
+
 })
 
 function recall(arr){
@@ -45,14 +47,21 @@ function recall(arr){
 let b = document.createElement('li');
 let div = document.createElement('div');
 // let c = x.value+"-"+y.value+"-"+z.value;
-let c = obj.name+"-"+obj.email+"-"+obj.number;
+let c = obj.name+"-"+obj.email+"-"+obj.phone;
 div.appendChild(document.createTextNode(c));
 
 b.appendChild(div);
+ol.appendChild(b);
 
 let d = document.createElement('button');
 let e = document.createTextNode("delete");
 d.appendChild(e);
+let m = obj._id;
+d.addEventListener('click', ()=>{
+    axios.delete(`https://crudcrud.com/api/11dead135d3549418caa72f228ce7483/users/${m}`);
+
+//    ol.removeChild(b);
+})
 d.classList="nasik";
 b.appendChild(d);
 
@@ -63,7 +72,7 @@ ab.appendChild(cd);
 ab.classList = 'editb';
 b.appendChild(ab);
 
-ol.appendChild(b);
+
     })
 }
 
@@ -78,7 +87,7 @@ function register(){
     }
 let stringifiedobj = JSON.stringify(myobj);
 console.log('inside registr');
- axios.post("https://crudcrud.com/api/a8be4882480e448eb0b10535100e6e23/appointments", myobj).then((data)=>{console.log(data),console.log("inside axios")}).catch((err)=>{console.log(err)});
+ axios.post("https://crudcrud.com/api/11dead135d3549418caa72f228ce7483/users", myobj).then((data)=>{console.log(data),console.log("inside axios")}).catch((err)=>{console.log(err)});
 // localStorage.setItem(x.value,stringifiedobj);
 let b = document.createElement('li');
 let div = document.createElement('div');
