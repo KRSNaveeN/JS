@@ -20,6 +20,7 @@ ol.addEventListener('click', (event)=>{
         {
             ol.removeChild(li);
             
+            
         }
         else if(button.textContent === 'edit')
         {
@@ -33,6 +34,38 @@ ol.addEventListener('click', (event)=>{
         }
     }
 });
+window.addEventListener('DOMContentLoaded', ()=>{
+    axios.get("https://crudcrud.com/api/a8be4882480e448eb0b10535100e6e23/appointments")
+       .then((res)=>{console.log(res.data), recall(res.data)})
+       .catch((er)=>console.log(err));
+})
+
+function recall(arr){
+    arr.map((obj)=>{
+let b = document.createElement('li');
+let div = document.createElement('div');
+// let c = x.value+"-"+y.value+"-"+z.value;
+let c = obj.name+"-"+obj.email+"-"+obj.number;
+div.appendChild(document.createTextNode(c));
+
+b.appendChild(div);
+
+let d = document.createElement('button');
+let e = document.createTextNode("delete");
+d.appendChild(e);
+d.classList="nasik";
+b.appendChild(d);
+
+
+let ab = document.createElement('button');
+let cd  = document.createTextNode('edit');
+ab.appendChild(cd);
+ab.classList = 'editb';
+b.appendChild(ab);
+
+ol.appendChild(b);
+    })
+}
 
 
 function register(){
@@ -45,7 +78,7 @@ function register(){
     }
 let stringifiedobj = JSON.stringify(myobj);
 console.log('inside registr');
- axios.post("https://crudcrud.com/api/890e96d39d0f4b0388a53dc3c9a666ea/data", myobj).then((data)=>{console.log(data),console.log("inside axios")}).catch((err)=>{console.log(err)});
+ axios.post("https://crudcrud.com/api/a8be4882480e448eb0b10535100e6e23/appointments", myobj).then((data)=>{console.log(data),console.log("inside axios")}).catch((err)=>{console.log(err)});
 // localStorage.setItem(x.value,stringifiedobj);
 let b = document.createElement('li');
 let div = document.createElement('div');
