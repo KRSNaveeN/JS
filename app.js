@@ -68,6 +68,9 @@ b.appendChild(d);
 
 let ab = document.createElement('button');
 let cd  = document.createTextNode('edit');
+ab.addEventListener('click', ()=>{
+    axios.delete(`https://crudcrud.com/api/11dead135d3549418caa72f228ce7483/users/${m}`);
+})
 ab.appendChild(cd);
 ab.classList = 'editb';
 b.appendChild(ab);
